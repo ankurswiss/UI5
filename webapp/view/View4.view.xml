@@ -26,8 +26,8 @@
             <items>
                 <ColumnListItem id="_IDGenColumnListItem2">
                     <cells>
-                        <Text id="_IDGenText13" text="{id}"/>
-                        <Text id="_IDGenText14" text="{name}"/>
+                        <Text id="_IDGenText13" text="{StdntId}"/>
+                        <Text id="_IDGenText14" text="{StdntName}"/>
                     </cells>
                 </ColumnListItem>
             </items>
@@ -35,6 +35,7 @@
 
       </form:SimpleForm>
       <Button id="_IDGenButton6" text="Create Record" press="OnBulkCreate" ></Button>
+      <Button id="_IDGenButton7" text="Back" press="onBack" ></Button>
     </content>
     </Page>
 
