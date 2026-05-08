@@ -38,7 +38,7 @@ sap.ui.define([
         onShowValHelp() {
 
             if (this.dialog === undefined) {
-                this.dialog = sap.ui.xmlfragment(this.getView().getId(), "jet.ztest1.fragments.RollNoF4help", this);
+                this.dialog = sap.ui.xmlfragment(this.getView().getId(), "project1.fragments.IdF4Help", this);
                 this.getView().addDependent(this.dialog);
             }
             this.dialog.open();

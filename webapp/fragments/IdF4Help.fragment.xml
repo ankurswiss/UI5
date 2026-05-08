@@ -1,0 +1,37 @@
+<core:FragmentDefinition id="_IDGenFragmentDefintion" xmlns:core="sap.ui.core"
+ xmlns="sap.m">
+
+ <Dialog id="_IDGenDialog1" title="Select Id">
+
+
+ <Table id="_IDGenTable1" items="{oModel>/StdntInfoSet}" mode="SingleSelectLeft">
+
+    <columns>
+    <Column id="_IDCol1.4">
+    <Text id="_IDText1.4" text="Roll number"></Text>
+    </Column>
+     <Column id="_IDCol2.4">
+    <Text id="_IDText2.4" text="Name"></Text>
+    </Column>
+   
+    </columns>
+    <items>
+    <ColumnListItem id="_IDGenColumnListItem.4" type="Active" press="onSelectTableF4" >
+    <Text id="_IDGenText.4" text="{oModel>StdntId}"></Text>
+    <Text id="_IDGenText1.4" text="{oModel>StdntName}"></Text>
+    </ColumnListItem>
+    
+    </items>
+
+    </Table>
+
+    <Button id="_IDGenButton2" text="Close" press="onClosePopUp" ></Button>
+
+
+
+
+
+ </Dialog>
+
+ </core:FragmentDefinition>
+
