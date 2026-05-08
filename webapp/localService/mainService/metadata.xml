@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZTEST_ODATA_BAS_BTP_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="StdntCert" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Mandt"/>
+                    <PropertyRef Name="StdntId"/>
+                    <PropertyRef Name="CertId"/>
+                </Key>
+                <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StdntId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CertId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CertName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="StdntInfo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StdntId"/>
+                </Key>
+                <Property Name="FName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StdntId" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StdntName" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field with Length 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StdntSurname" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field with Length 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StdntClass" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="toCert" Relationship="ZTEST_ODATA_BAS_BTP_SRV.EmpToCert" FromRole="FromRole_EmpToCert" ToRole="ToRole_EmpToCert"/>
+            </EntityType>
+            <Association Name="EmpToCert" sap:content-version="1">
+                <End Type="ZTEST_ODATA_BAS_BTP_SRV.StdntInfo" Multiplicity="1" Role="FromRole_EmpToCert"/>
+                <End Type="ZTEST_ODATA_BAS_BTP_SRV.StdntCert" Multiplicity="*" Role="ToRole_EmpToCert"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EmpToCert">
+                        <PropertyRef Name="StdntId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EmpToCert">
+                        <PropertyRef Name="StdntId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZTEST_ODATA_BAS_BTP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="StdntCertSet" EntityType="ZTEST_ODATA_BAS_BTP_SRV.StdntCert" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="StdntInfoSet" EntityType="ZTEST_ODATA_BAS_BTP_SRV.StdntInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="EmpToCertSet" Association="ZTEST_ODATA_BAS_BTP_SRV.EmpToCert" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="StdntInfoSet" Role="FromRole_EmpToCert"/>
+                    <End EntitySet="StdntCertSet" Role="ToRole_EmpToCert"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://vhjetdevci.virtual:443/sap/opu/odata/sap/ZTEST_ODATA_BAS_BTP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhjetdevci.virtual:443/sap/opu/odata/sap/ZTEST_ODATA_BAS_BTP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

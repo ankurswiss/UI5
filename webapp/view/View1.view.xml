@@ -1,0 +1,146 @@
+
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+    <content>
+    <Table id="_t1" items="{oModel>/StdntInfoSet}" mode="MultiSelect">
+    <!-- <Table id="_t1" items="{oModel>/StdntInfoSet}" mode="SingleSelectLeft"> -->
+    <headerToolbar>
+    <Toolbar id="_Tool1">
+    <Title id="_IDGenTitle" text="This is for the information"></Title>
+    <Button id="_IDGenButton1" text="Delete" press="onDelete" ></Button>
+    </Toolbar>
+    </headerToolbar>
+    <columns>
+    <Column id="_IDCol1">
+    <Text id="_IDText1" text="Roll number"></Text>
+    </Column>
+     <Column id="_IDCol2">
+    <Text id="_IDText2" text="Name"></Text>
+    </Column>
+    <Column id="_IDCol4">
+    <Text id="_IDText4" text="Sur Name"></Text>
+    </Column>
+    <Column id="_IDCol3">
+    <Text id="_IDText3" text="Class"></Text>
+    </Column>
+    </columns>
+    <items>
+    <ColumnListItem id="_IDGenColumnListItem" type="Navigation" press="onSelectTable">
+    <Text id="_IDGenText" text="{oModel>StdntId}"></Text>
+    <Text id="_IDGenText1" text="{oModel>StdntName}"></Text>
+    <ObjectStatus id="_IDGenObjectStatus" text="{oModel>StdntSurname}" state="Success"
+    inverted="true"></ObjectStatus>
+    <Text id="_IDGenText2" text="{oModel>StdntClass}"></Text>
+    </ColumnListItem>
+    
+    </items>
+
+    </Table>
+    
+    <List id="_IDGenList" items="{oModel>/StdntInfoSet}">
+    <headerToolbar>
+    </headerToolbar>
+    <items>
+    <ObjectListItem id="_IDGenObjectListItem" title="{oModel>StdntName}" number="{oModel>StdntClass}">
+    <attributes>
+    <ObjectAttribute id="_IDGenObjectAttribute" title="Surname" text="{oModel>StdntSurname}"></ObjectAttribute>
+    <ObjectAttribute id="_IDGenObjectAttribute1" title="Roll no" text="{oModel>StdntId}" ></ObjectAttribute>
+    </attributes>
+    <firstStatus>
+    <ObjectStatus id="_IDGenObjectStatus1" text="{oModel>StdntSurname}" state="{=${oModel>StdntSurname} === 'PANDEY'?'Success':'Error'}"
+    inverted="true"></ObjectStatus>
+    </firstStatus>
+    </ObjectListItem>
+    
+    </items>
+    
+    </List>
+
+   <form:SimpleForm id="_IDGenSimpleForm" layout="ResponsiveGridLayout" labelSpanL="4"
+   emptySpanL="6" >
+   <form:content>
+   <Label id="_IDGenLabel" text="Choose the roll number"></Label>
+   <Select id="_IDGenSelect" items="{oModel>/StdntInfoSet}" change="onDropSelect">
+   <items>
+   <core:Item id="_IDGenItem" text="{oModel>StdntId}" key="{oModel>StdntId}"></core:Item>
+   </items>
+   
+   </Select>
+   
+   <!-- you can type in this type of drop down in combo box, not in select box -->
+   <Label id="_IDGenLabel_1" text="Choose the roll number combo box"></Label>
+   <ComboBox id="_IDGenSelect_1" items="{oModel>/StdntInfoSet}">
+   <items>
+   <core:Item id="_IDGenItem_1" text="{oModel>StdntId}" key="{oModel>StdntId}"></core:Item>
+   </items>
+   
+   </ComboBox>
+<!-- in multicombo, you can choose multiple values-->
+    <Label id="_IDGenLabel_2" text="Choose the roll number multi combo box"></Label>
+   <MultiComboBox id="_IDGenSelect_2" items="{oModel>/StdntInfoSet}" showSelectAll="true">
+   <items>
+   <core:Item id="_IDGenItem_2" text="{oModel>StdntId}" key="{oModel>StdntId}"></core:Item>
+   </items>
+   
+   </MultiComboBox>
+<!-- radio button group -->
+  <Label id="_IDGenLabel_3" text="Choose the roll number radio button"></Label>
+  <RadioButtonGroup id="_IDGenRadioButtonGroup" buttons="{oModel>/StdntInfoSet}" >
+  <buttons>
+  <RadioButton id="_IDGenRadioButton" text="{oModel>StdntId}" ></RadioButton>
+  </buttons>
+  
+  </RadioButtonGroup>
+
+  <Label id="_IDGenLabel3" text="Choose the Mode of Contact"></Label>
+   <Select id="_IDGenSelect3" change="onDropSelect1">
+   <items>
+   <core:Item id="_IDGenItem3" text="Mobile" key="M"></core:Item>
+   <core:Item id="_IDGenItem4" text="Fax" key="F"></core:Item>
+   <core:Item id="_IDGenItem5" text="EMail" key="E"></core:Item>
+   </items>
+   </Select>
+
+
+    <Label id="_IDGenLabel4" text="Are you interested in viewing this page"></Label>
+   <Select id="_IDGenSelect4" items= "{oLookupModel>/aYesNo}" change="onDropSelect2">
+   <items>
+   <core:Item id="_IDGenItem6" text= "{oLookupModel>text}" key="{oLookupModel>key}"></core:Item>
+
+   </items>
+   </Select>
+   <Label id="_IDGenLabel1" text="Input field for F4 help" ></Label>
+   <Input id="_IDGenInput" showValueHelp="true" valueHelpRequest="onShowValHelp"></Input>
+    
+    <form:SimpleForm id="_IDGenSimpleForm1" >
+    
+    <Label id="_IDGenText3" text="Name" ></Label>
+    <Text id="_IDGenInput1" text="{oModel>StdntName}" ></Text>
+
+    <Label id="_IDGenText4.1" text="Father Name" ></Label>
+    <Text id="_IDGenInput1.2" text="{oModel>FName}"></Text>
+    <Label id="_IDGenText3.1" text="Mother Name" ></Label>
+    <Text id="_IDGenInput1.1" text="{oModel>MName}" ></Text>
+
+
+    
+    <Button id="_IDGenButton_1" text="Details" press="onDetails" ></Button>
+    </form:SimpleForm>
+    
+
+   </form:content>
+   </form:SimpleForm> 
+    <Button id="_IDGenButton" text="Submit" press="onSubmit" ></Button>
+    <Button id="_IDGenButton.1" text="Create Record" press="onCreate" ></Button>
+    <Button id="_IDGenButton.2" text="Create Bulk Record" press="onCreateBulk" ></Button>
+    </content>
+    
+
+
+
+    </Page>
+</mvc:View>

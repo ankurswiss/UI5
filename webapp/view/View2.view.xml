@@ -1,0 +1,29 @@
+
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page.1" title="View 2">
+    <content>
+    <form:SimpleForm id="_IDGenSimpleForm3"  >
+    <Label id="_IDGenText3.2" text="Name" ></Label>
+    <Text id="_IDGenInput1.2.1" text="{oModel>StdntName}" ></Text>
+
+    <Label id="_IDGenText4.2.1" text="Father Name" ></Label>
+    <Text id="_IDGenInput1.1.2" text="{oModel>FName}"></Text>
+    <Label id="_IDGenText3.1.2" text="Mother Name" ></Label>
+    <Text id="_IDGenInput1.1.1" text="{oModel>MName}" ></Text>
+    
+    
+    </form:SimpleForm>
+    
+    <Button id="_IDGenButton.1.1" text="Back" press="onBack" ></Button>
+    <!-- <Button id="_IDGenButton.2.1" text="Create Bulk Record" press="onCreateBulk" ></Button> -->
+    </content>
+    
+
+
+
+    </Page>
+</mvc:View>

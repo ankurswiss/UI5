@@ -1,0 +1,67 @@
+
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="project1.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page id="page3" title="Create page">
+    <content>
+    <form:SimpleForm id="_IDGenSimpleForm1.2" layout="ResponsiveGridLayout"
+    labelSpanL="1" labelSpanM="1"> 
+    <Label id="_IDGenLabel2" text="Name" ></Label>
+    <Input id="_IDGenInput2"  ></Input>
+    <Label id="_IDGenLabel5" text="ID" ></Label>
+    <Input id="_IDGenInput3" ></Input>
+    <Button id="_IDGenButton3.2" text="Create" press="onBack2" badgeStyle="Attention" ></Button>
+    <!-- <Button id="_IDGenButton_1.1" text="Details" press="onDetails" ></Button> -->
+    </form:SimpleForm>
+    <Button id="_IDGenButton3.1" text="Back" press="onBack1" badgeStyle="Attention" ></Button>
+
+    <Table id="_IDGenTable" class="sapUiSmallMargin" width="auto" items="{certModel>/aCertif}">
+    <headerToolbar>
+    <Toolbar id="_IDGenToolbar" >
+    <Title id="_IDGenTitle1" text="Add more details" ></Title>
+    <ToolbarSpacer id="_IDGenToolbarSpacer" ></ToolbarSpacer>
+    <Button id="_IDGenButton4" text="Add" type="Emphasized" icon="sap-icon://add" 
+    press="onAddRow"></Button>
+    </Toolbar>
+    </headerToolbar>
+    <columns>
+    <Column id="_IDGenColumn.2" >
+    <Text id="_IDGenText4.3" text="Roll No"></Text>
+    </Column>
+    <Column id="_IDGenColumn" >
+    <Text id="_IDGenText4" text="Cert ID"></Text>
+    </Column>
+    <Column id="_IDGenColumn.1" >
+    <Text id="_IDGenText4.2" text="Cert Name"></Text>
+    </Column>
+    <Column id="_IDGenColumn.4" >
+    <Text id="_IDGenText4.4" text="Remove Row"></Text>
+    </Column>
+    </columns>
+    <items>
+        <ColumnListItem id="_IDGenColumnListItem3">
+          <cells>
+            <Input id="_IDGenInput5" value="{certModel>StdntId}" placeholder="Enter ID" enabled="false"/>
+            
+            <Input id="_IDGenInput6" value="{certModel>CertId}" placeholder="Enter Cer ID"/>
+            <Input id="_IDGenInput7" value="{certModel>CertName}" placeholder="Enter Cer Name"/>
+            <Button id="_IDGenButton5" text="Delete Row" press="onDeleteRow" ></Button>
+          </cells>
+        </ColumnListItem>
+      </items>
+    
+    
+    </Table>
+
+    </content>
+    </Page>
+
+ 
+
+
+
+</mvc:View>
+
